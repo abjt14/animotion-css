@@ -1,0 +1,966 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Animotion.css</title>
+
+	<style>
+
+		:root {
+			--color-text: rgb(76, 86, 106);
+			--color-bg: rgb(242, 244, 248);
+			--color-bg-inner: rgb(255, 255, 255);
+			--color-bg-inner-shadow: 0 1px 1px rgb(0 0 0 / 12%), 0 2px 2px rgb(0 0 0 / 12%), 0 4px 4px rgb(0 0 0 / 12%), 0 8px 8px rgb(0 0 0 / 12%), 0 16px 16px rgb(0 0 0 / 12%)
+			--color-sidebar-section: #D8DEE9;
+			--color-sidebar-list-hover: #000;
+			--color-border: rgb(76, 86, 106);
+			--color-version-bg-hover: rgba(76, 86, 106, 0.253);
+			--color-version-text-hover: rgb(76, 86, 106);
+			--color-version-bg-active: rgb(76, 86, 106);
+			--color-version-text-active: rgb(242, 244, 248);
+		}
+
+		html,
+		body {
+			margin: 0;
+			height: 100%;
+			scroll-behavior: smooth;
+			overflow-x: hidden;
+			font-family: 'Montserrat', sans-serif;
+			color: var(--color-text);
+			background-color: var(--color-bg);
+		}
+
+		h1,
+		h2,
+		p,
+		a {
+			margin: 0;
+			font-family: 'Raleway', sans-serif;
+		}
+
+		img {
+			max-width: 100%;
+		}
+
+		:root {
+			--sidebar-width: 250px;
+		}
+
+		#wrapper-main {
+			height: 100%;
+			width: 100%;
+		}
+
+		aside {
+			height: 100%;
+			width: var(--sidebar-width);
+			position: fixed;
+			text-transform: uppercase;
+			border-right: 1px solid var(--color-border);
+		}
+
+		header {
+			position: fixed;
+			top: 0;
+			left: 0;
+			padding: 1rem;
+			display: grid;
+			grid-template-columns: 3fr 1fr;
+			width: calc(var(--sidebar-width) - 2rem);
+			background-color: var(--color-bg);
+			border-bottom: 1px solid var(--color-border);
+			border-right: 1px solid var(--color-border);
+		}
+
+		header i {
+			text-align: right;
+			align-self: center;
+		}
+
+		nav {
+			position: fixed;
+			top: 106px;
+			left: 0;
+			width: var(--sidebar-width);
+			overflow-y: auto;
+    	height: calc(100% - 70px);
+			background-color: var(--color-bg);
+			border-right: 1px solid var(--color-border);
+			max-height: calc(100% - 106.8px);
+		}
+
+		#nav-switcher {
+			position: fixed;
+			top: 70px;
+			left: 0;
+			width: var(--sidebar-width);
+			font-size: 1rem;
+			border-bottom: 1px solid var(--color-border);
+			border-right: 1px solid var(--color-border);
+		}
+
+		#nav-switcher > div {
+			padding: 0.5rem;
+			text-align: center;
+		}
+
+		.nav-section-heading {
+			padding: 0.5rem 1rem;
+			font-size: 1rem;
+			cursor: pointer;
+		}
+
+		.nav-subsection-heading {
+			padding: 0.5rem;
+		}
+
+		#css-nav > .nav-section:nth-child(2), #css-nav > .nav-section:nth-child(10){
+			border-bottom: 1px solid var(--color-border);
+		}
+
+		.nav-section {
+			max-height: 35.2px;
+			overflow: hidden;
+			transition: 1s all;
+		}
+
+		.nav-section.active {
+			max-height: 2000px;
+		}
+
+		.nav-section ul {
+			list-style: none;
+			padding: 0 1rem;
+			margin: 0;
+			margin: 0;
+			padding-left: 1rem;
+			list-style: none;
+			/* background-color: var(--color-sidebar-section); */
+		}
+
+		.nav-section li {
+			padding: 0;
+			font-size: 1rem;
+		}
+
+		.nav-section li button {
+			color: var(--color-text);
+			background-color: transparent;
+			border: 0;
+			transition: color 0.3s ease;
+			padding: 0;
+			font-family: inherit;
+			width: 100%;
+			text-align: left;
+			padding: 0.5rem 1rem;
+			cursor: pointer;
+		}
+
+		.nav-section li button:hover {
+			color: var(--color-sidebar-list-hover);
+		}
+
+		.nav-section-heading svg {
+			margin-top: 3px;
+			width: 14px;
+			float: right;
+		}
+
+		.nav-section-heading svg path {
+			fill: var(--color-text);
+		}
+
+		#wrapper-inner {
+			height: 100%;
+			margin-left: var(--sidebar-width);
+			background-color: var(--color-bg-inner);
+		}
+
+		#cont-1 {
+			margin: auto;
+			/* display: flex; */
+			height: 100%;
+			align-content: center;
+			text-align: center;
+			position: relative;
+			border-bottom: 1px solid var(--color-border);
+		}
+
+		#cont-1 > div {
+			padding: 1rem;
+			top: calc(50% - 72.5px);
+		}
+
+		#cont-1 h1 {
+			font-size: 4rem;
+		}
+
+		#cont-1 p {
+			font-size: 1rem;
+		}
+
+		#cont-1 * {
+			position: relative;
+		}
+
+		#cont-1 a {
+			color: var(--color-text);
+		}
+
+		#cont-1 .download-text {
+			font-size: 1rem;
+		}
+
+		#cont-2 {
+			height: 100%;
+		}
+
+		#cont-2 section {
+			display: grid;
+			grid-template-columns: 1fr 1fr;
+			height: calc(100% - 70px);
+		}
+
+		#cont-2 section > div {
+			padding: 1rem;
+			align-self: center;
+		}
+
+		#demo-cont {
+			display: flex;
+    	justify-content: center;
+		}
+
+		#selected-animation {
+			padding: 1.6rem;
+			border-bottom: 1px solid var(--color-border);
+		}
+
+		#example-div {
+			max-width: 10rem;
+			max-height: 10rem;
+			padding: 1rem;
+			align-self: center;
+			background-color: var(--color-bg-inner);
+			border-radius: 5px;
+			border: 3px solid var(--color-border);
+			box-shadow: var(--color-bg-inner-shadow);
+		}
+
+		pre {
+			margin: 0;
+		}
+
+		.mobile-show {
+			display: none;
+		}
+
+		@media screen and (max-width: 1200px) {
+			#cont-2 section {
+				grid-template-columns: 1fr;
+			}
+		}
+
+		@media screen and (max-width: 800px) {
+			header {
+				display: none;
+			}
+
+			#nav-switcher {
+				display: none;
+			}
+
+			#css-nav {
+				display: none;
+			}
+
+			#wrapper-inner {
+				margin-left: 0;
+			}
+
+			#cont-1 {
+				border: none;
+			}
+
+			#cont-1 h1 {
+				font-size: 3rem;
+			}
+
+			#cont-1 p {
+				font-size: 1.2rem;
+			}
+
+			#cont-1 .download-text {
+				margin-top: .5rem;
+			}
+
+			.mobile-show {
+				display: block;
+			}
+
+			#cont-2 {
+				display: none;
+			}
+		}
+	</style>
+
+	<link rel="stylesheet" href="library/animotion.css">
+
+	<link rel="preconnect" href="https://fonts.gstatic.com">
+	<link
+		href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;1,100;1,200;1,300;1,400;1,500&family=Raleway:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+		rel="stylesheet">
+
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/styles/nord.min.css" integrity="sha512-igI4zzTHEU3IASS/ojMD7tO6hScqpnEnz41u+xVRNZvZEaF3XaCdre0qZ08frR1hri9+aSNeAXlQz1DS3luvxA==" crossorigin="anonymous" />
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/highlight.min.js" integrity="sha512-9GIHU4rPKUMvNOHFOer5Zm2zHnZOjayOO3lZpokhhCtgt8FNlNiW/bb7kl0R5ZXfCDVPcQ8S4oBdNs92p5Nm2w==" crossorigin="anonymous"></script>
+		<script>hljs.initHighlightingOnLoad();</script>
+</head>
+
+<body>
+	<div id="wrapper-main">
+		<header>
+			<h1>
+				Animotion
+			</h1>
+			<i>1.0</i>
+		</header>
+		<div id="nav-switcher">
+			<div id="nav-switcher-toCSS">CSS Version</div>
+		</div>
+		<nav id="css-nav" class="">
+			<div class="nav-section">
+				<p class="nav-section-heading">
+					About
+				</p>
+			</div>
+			<div class="nav-section">
+				<p class="nav-section-heading">
+					Getting Started
+				</p>
+			</div>
+			<div class="nav-section">
+				<p class="nav-section-heading sidenav-toggle-accordian">
+					Fade In
+					<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 100 100" version="1.1" x="0px" y="0px"><title>Artboard</title><desc>Created with Sketch.</desc><g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd"><path d="M86.9102564,31.025641 C85.8846154,30 84.2179487,30 83.1923077,31.025641 L50.5,63.7820513 L17.7435897,31.025641 C16.7179487,30 15.0512821,30 14.025641,31.025641 C13,32.0512821 13,33.7179487 14.025641,34.7435897 L48.5769231,69.2948718 C49.0897436,69.8076923 49.7307692,70.0641026 50.4358974,70.0641026 C51.0769231,70.0641026 51.7820513,69.8076923 52.2948718,69.2948718 L86.8461538,34.7435897 C87.9358974,33.7179487 87.9358974,32.0512821 86.9102564,31.025641 Z" fill="#000000" fill-rule="nonzero"/></g><text x="0" y="115" fill="#000000" font-size="5px" font-weight="bold" font-family="'Helvetica Neue', Helvetica, Arial-Unicode, Arial, Sans-serif">Created by Abdul karim</text><text x="0" y="120" fill="#000000" font-size="5px" font-weight="bold" font-family="'Helvetica Neue', Helvetica, Arial-Unicode, Arial, Sans-serif">from the Noun Project</text></svg>
+					<p hidden>By https://thenounproject.com/abdul.karim002 at TheNounProject</p>
+				</p>
+				<ul>
+					<li>
+						<button type="button" class="css-demo-button">
+							| anm-fadein
+						</button>
+					</li>
+					<li>
+						<button type="button" class="css-demo-button">
+							| anm-fadein-up
+						</button>
+					</li>
+					<li>
+						<button type="button" class="css-demo-button">
+							| anm-fadein-down
+						</button>
+					</li>
+					<li>
+						<button type="button" class="css-demo-button">
+							| anm-fadein-left
+						</button>
+					</li>
+					<li>
+						<button type="button" class="css-demo-button">
+							| anm-fadein-right
+						</button>
+					</li>
+					<li>
+						<button type="button" class="css-demo-button">
+							| anm-fadein-up-left
+						</button>
+					</li>
+					<li>
+						<button type="button" class="css-demo-button">
+							| anm-fadein-up-right
+						</button>
+					</li>
+					<li>
+						<button type="button" class="css-demo-button">
+							| anm-fadein-down-left
+						</button>
+					</li>
+					<li>
+						<button type="button" class="css-demo-button">
+							| anm-fadein-down-right
+						</button>
+					</li>
+				</ul>
+			</div>
+			<div class="nav-section">
+				<p class="nav-section-heading sidenav-toggle-accordian">
+					Fade Out
+					<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 100 100" version="1.1" x="0px" y="0px"><title>Artboard</title><desc>Created with Sketch.</desc><g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd"><path d="M86.9102564,31.025641 C85.8846154,30 84.2179487,30 83.1923077,31.025641 L50.5,63.7820513 L17.7435897,31.025641 C16.7179487,30 15.0512821,30 14.025641,31.025641 C13,32.0512821 13,33.7179487 14.025641,34.7435897 L48.5769231,69.2948718 C49.0897436,69.8076923 49.7307692,70.0641026 50.4358974,70.0641026 C51.0769231,70.0641026 51.7820513,69.8076923 52.2948718,69.2948718 L86.8461538,34.7435897 C87.9358974,33.7179487 87.9358974,32.0512821 86.9102564,31.025641 Z" fill="#000000" fill-rule="nonzero"/></g><text x="0" y="115" fill="#000000" font-size="5px" font-weight="bold" font-family="'Helvetica Neue', Helvetica, Arial-Unicode, Arial, Sans-serif">Created by Abdul karim</text><text x="0" y="120" fill="#000000" font-size="5px" font-weight="bold" font-family="'Helvetica Neue', Helvetica, Arial-Unicode, Arial, Sans-serif">from the Noun Project</text></svg>
+					<p hidden>By https://thenounproject.com/abdul.karim002 at TheNounProject</p>
+				</p>
+				<ul>
+					<li>
+						<button type="button" class="css-demo-button">
+							| anm-fadeout
+						</button>
+					</li>
+					<li>
+						<button type="button" class="css-demo-button">
+							| anm-fadeout-up
+						</button>
+					</li>
+					<li>
+						<button type="button" class="css-demo-button">
+							| anm-fadeout-down
+						</button>
+					</li>
+					<li>
+						<button type="button" class="css-demo-button">
+							| anm-fadeout-left
+						</button>
+					</li>
+					<li>
+						<button type="button" class="css-demo-button">
+							| anm-fadeout-right
+						</button>
+					</li>
+					<li>
+						<button type="button" class="css-demo-button">
+							| anm-fadeout-up-left
+						</button>
+					</li>
+					<li>
+						<button type="button" class="css-demo-button">
+							| anm-fadeout-up-right
+						</button>
+					</li>
+					<li>
+						<button type="button" class="css-demo-button">
+							| anm-fadeout-down-left
+						</button>
+					</li>
+					<li>
+						<button type="button" class="css-demo-button">
+							| anm-fadeout-down-right
+						</button>
+					</li>
+				</ul>
+			</div>
+			<div class="nav-section">
+				<p class="nav-section-heading sidenav-toggle-accordian">
+					Zoom In
+					<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 100 100" version="1.1" x="0px" y="0px"><title>Artboard</title><desc>Created with Sketch.</desc><g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd"><path d="M86.9102564,31.025641 C85.8846154,30 84.2179487,30 83.1923077,31.025641 L50.5,63.7820513 L17.7435897,31.025641 C16.7179487,30 15.0512821,30 14.025641,31.025641 C13,32.0512821 13,33.7179487 14.025641,34.7435897 L48.5769231,69.2948718 C49.0897436,69.8076923 49.7307692,70.0641026 50.4358974,70.0641026 C51.0769231,70.0641026 51.7820513,69.8076923 52.2948718,69.2948718 L86.8461538,34.7435897 C87.9358974,33.7179487 87.9358974,32.0512821 86.9102564,31.025641 Z" fill="#000000" fill-rule="nonzero"/></g><text x="0" y="115" fill="#000000" font-size="5px" font-weight="bold" font-family="'Helvetica Neue', Helvetica, Arial-Unicode, Arial, Sans-serif">Created by Abdul karim</text><text x="0" y="120" fill="#000000" font-size="5px" font-weight="bold" font-family="'Helvetica Neue', Helvetica, Arial-Unicode, Arial, Sans-serif">from the Noun Project</text></svg>
+					<p hidden>By https://thenounproject.com/abdul.karim002 at TheNounProject</p>
+				</p>
+				<ul>
+					<li>
+						<button type="button" class="css-demo-button">
+							| anm-zoomin
+						</button>
+					</li>
+					<li>
+						<button type="button" class="css-demo-button">
+							| anm-zoomin-up
+						</button>
+					</li>
+					<li>
+						<button type="button" class="css-demo-button">
+							| anm-zoomin-down
+						</button>
+					</li>
+					<li>
+						<button type="button" class="css-demo-button">
+							| anm-zoomin-left
+						</button>
+					</li>
+					<li>
+						<button type="button" class="css-demo-button">
+							| anm-zoomin-right
+						</button>
+					</li>
+					<li>
+						<button type="button" class="css-demo-button">
+							| anm-zoomin-up-left
+						</button>
+					</li>
+					<li>
+						<button type="button" class="css-demo-button">
+							| anm-zoomin-up-right
+						</button>
+					</li>
+					<li>
+						<button type="button" class="css-demo-button">
+							| anm-zoomin-down-left
+						</button>
+					</li>
+					<li>
+						<button type="button" class="css-demo-button">
+							| anm-zoomin-down-right
+						</button>
+					</li>
+				</ul>
+			</div>
+			<div class="nav-section">
+				<p class="nav-section-heading sidenav-toggle-accordian">
+					Zoom Out
+					<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 100 100" version="1.1" x="0px" y="0px"><title>Artboard</title><desc>Created with Sketch.</desc><g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd"><path d="M86.9102564,31.025641 C85.8846154,30 84.2179487,30 83.1923077,31.025641 L50.5,63.7820513 L17.7435897,31.025641 C16.7179487,30 15.0512821,30 14.025641,31.025641 C13,32.0512821 13,33.7179487 14.025641,34.7435897 L48.5769231,69.2948718 C49.0897436,69.8076923 49.7307692,70.0641026 50.4358974,70.0641026 C51.0769231,70.0641026 51.7820513,69.8076923 52.2948718,69.2948718 L86.8461538,34.7435897 C87.9358974,33.7179487 87.9358974,32.0512821 86.9102564,31.025641 Z" fill="#000000" fill-rule="nonzero"/></g><text x="0" y="115" fill="#000000" font-size="5px" font-weight="bold" font-family="'Helvetica Neue', Helvetica, Arial-Unicode, Arial, Sans-serif">Created by Abdul karim</text><text x="0" y="120" fill="#000000" font-size="5px" font-weight="bold" font-family="'Helvetica Neue', Helvetica, Arial-Unicode, Arial, Sans-serif">from the Noun Project</text></svg>
+					<p hidden>By https://thenounproject.com/abdul.karim002 at TheNounProject</p>
+				</p>
+				<ul>
+					<li>
+						<button type="button" class="css-demo-button">
+							| anm-zoomout
+						</button>
+					</li>
+					<li>
+						<button type="button" class="css-demo-button">
+							| anm-zoomout-up
+						</button>
+					</li>
+					<li>
+						<button type="button" class="css-demo-button">
+							| anm-zoomout-down
+						</button>
+					</li>
+					<li>
+						<button type="button" class="css-demo-button">
+							| anm-zoomout-left
+						</button>
+					</li>
+					<li>
+						<button type="button" class="css-demo-button">
+							| anm-zoomout-right
+						</button>
+					</li>
+					<li>
+						<button type="button" class="css-demo-button">
+							| anm-zoomout-up-left
+						</button>
+					</li>
+					<li>
+						<button type="button" class="css-demo-button">
+							| anm-zoomout-up-right
+						</button>
+					</li>
+					<li>
+						<button type="button" class="css-demo-button">
+							| anm-zoomout-down-left
+						</button>
+					</li>
+					<li>
+						<button type="button" class="css-demo-button">
+							| anm-zoomout-down-right
+						</button>
+					</li>
+				</ul>
+			</div>
+			<div class="nav-section">
+				<p class="nav-section-heading sidenav-toggle-accordian">
+					Move In
+					<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 100 100" version="1.1" x="0px" y="0px"><title>Artboard</title><desc>Created with Sketch.</desc><g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd"><path d="M86.9102564,31.025641 C85.8846154,30 84.2179487,30 83.1923077,31.025641 L50.5,63.7820513 L17.7435897,31.025641 C16.7179487,30 15.0512821,30 14.025641,31.025641 C13,32.0512821 13,33.7179487 14.025641,34.7435897 L48.5769231,69.2948718 C49.0897436,69.8076923 49.7307692,70.0641026 50.4358974,70.0641026 C51.0769231,70.0641026 51.7820513,69.8076923 52.2948718,69.2948718 L86.8461538,34.7435897 C87.9358974,33.7179487 87.9358974,32.0512821 86.9102564,31.025641 Z" fill="#000000" fill-rule="nonzero"/></g><text x="0" y="115" fill="#000000" font-size="5px" font-weight="bold" font-family="'Helvetica Neue', Helvetica, Arial-Unicode, Arial, Sans-serif">Created by Abdul karim</text><text x="0" y="120" fill="#000000" font-size="5px" font-weight="bold" font-family="'Helvetica Neue', Helvetica, Arial-Unicode, Arial, Sans-serif">from the Noun Project</text></svg>
+					<p hidden>By https://thenounproject.com/abdul.karim002 at TheNounProject</p>
+				</p>
+				<ul>
+					<li>
+						<button type="button" class="css-demo-button">
+							| anm-movein-up
+						</button>
+					</li>
+					<li>
+						<button type="button" class="css-demo-button">
+							| anm-movein-down
+						</button>
+					</li>
+					<li>
+						<button type="button" class="css-demo-button">
+							| anm-movein-left
+						</button>
+					</li>
+					<li>
+						<button type="button" class="css-demo-button">
+							| anm-movein-right
+						</button>
+					</li>
+					<li>
+						<button type="button" class="css-demo-button">
+							| anm-movein-up-left
+						</button>
+					</li>
+					<li>
+						<button type="button" class="css-demo-button">
+							| anm-movein-up-right
+						</button>
+					</li>
+					<li>
+						<button type="button" class="css-demo-button">
+							| anm-movein-down-left
+						</button>
+					</li>
+					<li>
+						<button type="button" class="css-demo-button">
+							| anm-movein-down-right
+						</button>
+					</li>
+				</ul>
+			</div>
+			<div class="nav-section">
+				<p class="nav-section-heading sidenav-toggle-accordian">
+					Move Out
+					<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 100 100" version="1.1" x="0px" y="0px"><title>Artboard</title><desc>Created with Sketch.</desc><g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd"><path d="M86.9102564,31.025641 C85.8846154,30 84.2179487,30 83.1923077,31.025641 L50.5,63.7820513 L17.7435897,31.025641 C16.7179487,30 15.0512821,30 14.025641,31.025641 C13,32.0512821 13,33.7179487 14.025641,34.7435897 L48.5769231,69.2948718 C49.0897436,69.8076923 49.7307692,70.0641026 50.4358974,70.0641026 C51.0769231,70.0641026 51.7820513,69.8076923 52.2948718,69.2948718 L86.8461538,34.7435897 C87.9358974,33.7179487 87.9358974,32.0512821 86.9102564,31.025641 Z" fill="#000000" fill-rule="nonzero"/></g><text x="0" y="115" fill="#000000" font-size="5px" font-weight="bold" font-family="'Helvetica Neue', Helvetica, Arial-Unicode, Arial, Sans-serif">Created by Abdul karim</text><text x="0" y="120" fill="#000000" font-size="5px" font-weight="bold" font-family="'Helvetica Neue', Helvetica, Arial-Unicode, Arial, Sans-serif">from the Noun Project</text></svg>
+					<p hidden>By https://thenounproject.com/abdul.karim002 at TheNounProject</p>
+				</p>
+				<ul>
+					<li>
+						<button type="button" class="css-demo-button">
+							| anm-moveout-up
+						</button>
+					</li>
+					<li>
+						<button type="button" class="css-demo-button">
+							| anm-moveout-down
+						</button>
+					</li>
+					<li>
+						<button type="button" class="css-demo-button">
+							| anm-moveout-left
+						</button>
+					</li>
+					<li>
+						<button type="button" class="css-demo-button">
+							| anm-moveout-right
+						</button>
+					</li>
+					<li>
+						<button type="button" class="css-demo-button">
+							| anm-moveout-up-left
+						</button>
+					</li>
+					<li>
+						<button type="button" class="css-demo-button">
+							| anm-moveout-up-right
+						</button>
+					</li>
+					<li>
+						<button type="button" class="css-demo-button">
+							| anm-moveout-down-left
+						</button>
+					</li>
+					<li>
+						<button type="button" class="css-demo-button">
+							| anm-moveout-down-right
+						</button>
+					</li>
+				</ul>
+			</div>
+			<div class="nav-section">
+				<p class="nav-section-heading sidenav-toggle-accordian">
+					Flip In
+					<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 100 100" version="1.1" x="0px" y="0px"><title>Artboard</title><desc>Created with Sketch.</desc><g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd"><path d="M86.9102564,31.025641 C85.8846154,30 84.2179487,30 83.1923077,31.025641 L50.5,63.7820513 L17.7435897,31.025641 C16.7179487,30 15.0512821,30 14.025641,31.025641 C13,32.0512821 13,33.7179487 14.025641,34.7435897 L48.5769231,69.2948718 C49.0897436,69.8076923 49.7307692,70.0641026 50.4358974,70.0641026 C51.0769231,70.0641026 51.7820513,69.8076923 52.2948718,69.2948718 L86.8461538,34.7435897 C87.9358974,33.7179487 87.9358974,32.0512821 86.9102564,31.025641 Z" fill="#000000" fill-rule="nonzero"/></g><text x="0" y="115" fill="#000000" font-size="5px" font-weight="bold" font-family="'Helvetica Neue', Helvetica, Arial-Unicode, Arial, Sans-serif">Created by Abdul karim</text><text x="0" y="120" fill="#000000" font-size="5px" font-weight="bold" font-family="'Helvetica Neue', Helvetica, Arial-Unicode, Arial, Sans-serif">from the Noun Project</text></svg>
+					<p hidden>By https://thenounproject.com/abdul.karim002 at TheNounProject</p>
+				</p>
+				<ul>
+					<li>
+						<button type="button" class="css-demo-button">
+							| anm-flipin-up
+						</button>
+					</li>
+					<li>
+						<button type="button" class="css-demo-button">
+							| anm-flipin-down
+						</button>
+					</li>
+					<li>
+						<button type="button" class="css-demo-button">
+							| anm-flipin-left
+						</button>
+					</li>
+					<li>
+						<button type="button" class="css-demo-button">
+							| anm-flipin-right
+						</button>
+					</li>
+				</ul>
+			</div>
+			<div class="nav-section">
+				<p class="nav-section-heading sidenav-toggle-accordian">
+					Flip Out
+					<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 100 100" version="1.1" x="0px" y="0px"><title>Artboard</title><desc>Created with Sketch.</desc><g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd"><path d="M86.9102564,31.025641 C85.8846154,30 84.2179487,30 83.1923077,31.025641 L50.5,63.7820513 L17.7435897,31.025641 C16.7179487,30 15.0512821,30 14.025641,31.025641 C13,32.0512821 13,33.7179487 14.025641,34.7435897 L48.5769231,69.2948718 C49.0897436,69.8076923 49.7307692,70.0641026 50.4358974,70.0641026 C51.0769231,70.0641026 51.7820513,69.8076923 52.2948718,69.2948718 L86.8461538,34.7435897 C87.9358974,33.7179487 87.9358974,32.0512821 86.9102564,31.025641 Z" fill="#000000" fill-rule="nonzero"/></g><text x="0" y="115" fill="#000000" font-size="5px" font-weight="bold" font-family="'Helvetica Neue', Helvetica, Arial-Unicode, Arial, Sans-serif">Created by Abdul karim</text><text x="0" y="120" fill="#000000" font-size="5px" font-weight="bold" font-family="'Helvetica Neue', Helvetica, Arial-Unicode, Arial, Sans-serif">from the Noun Project</text></svg>
+					<p hidden>By https://thenounproject.com/abdul.karim002 at TheNounProject</p>
+				</p>
+				<ul>
+					<li>
+						<button type="button" class="css-demo-button">
+							| anm-flipout-up
+						</button>
+					</li>
+					<li>
+						<button type="button" class="css-demo-button">
+							| anm-flipout-down
+						</button>
+					</li>
+					<li>
+						<button type="button" class="css-demo-button">
+							| anm-flipout-left
+						</button>
+					</li>
+					<li>
+						<button type="button" class="css-demo-button">
+							| anm-flipout-right
+						</button>
+					</li>
+				</ul>
+			</div>
+			<div class="nav-section">
+				<p class="nav-section-heading sidenav-toggle-accordian">
+					Cubic Bezier
+					<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 100 100" version="1.1" x="0px" y="0px"><title>Artboard</title><desc>Created with Sketch.</desc><g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd"><path d="M86.9102564,31.025641 C85.8846154,30 84.2179487,30 83.1923077,31.025641 L50.5,63.7820513 L17.7435897,31.025641 C16.7179487,30 15.0512821,30 14.025641,31.025641 C13,32.0512821 13,33.7179487 14.025641,34.7435897 L48.5769231,69.2948718 C49.0897436,69.8076923 49.7307692,70.0641026 50.4358974,70.0641026 C51.0769231,70.0641026 51.7820513,69.8076923 52.2948718,69.2948718 L86.8461538,34.7435897 C87.9358974,33.7179487 87.9358974,32.0512821 86.9102564,31.025641 Z" fill="#000000" fill-rule="nonzero"/></g><text x="0" y="115" fill="#000000" font-size="5px" font-weight="bold" font-family="'Helvetica Neue', Helvetica, Arial-Unicode, Arial, Sans-serif">Created by Abdul karim</text><text x="0" y="120" fill="#000000" font-size="5px" font-weight="bold" font-family="'Helvetica Neue', Helvetica, Arial-Unicode, Arial, Sans-serif">from the Noun Project</text></svg>
+					<p hidden>By https://thenounproject.com/abdul.karim002 at TheNounProject</p>
+				</p>
+				<ul>
+					<li>
+						<button class="css-demo-button-cubic-bezier" type="button">
+							| anm-linear
+						</button>
+					</li>
+					<li>
+						<button class="css-demo-button-cubic-bezier" type="button">
+							| anm-ease
+						</button>
+					</li>
+					<li>
+						<button class="css-demo-button-cubic-bezier" type="button">
+							| anm-ease-in
+						</button>
+					</li>
+					<li>
+						<button class="css-demo-button-cubic-bezier" type="button">
+							| anm-ease-out
+						</button>
+					</li>
+					<li>
+						<button class="css-demo-button-cubic-bezier" type="button">
+							| anm-ease-in-out
+						</button>
+					</li>
+					<li>
+						<button class="css-demo-button-cubic-bezier" type="button">
+							| anm-ease-in-sine
+						</button>
+					</li>
+					<li>
+						<button class="css-demo-button-cubic-bezier" type="button">
+							| anm-ease-out-sine
+						</button>
+					</li>
+					<li>
+						<button class="css-demo-button-cubic-bezier" type="button">
+							| anm-ease-in-out-sine
+						</button>
+					</li>
+					<li>
+						<button class="css-demo-button-cubic-bezier" type="button">
+							| anm-ease-in-quad
+						</button>
+					</li>
+					<li>
+						<button class="css-demo-button-cubic-bezier" type="button">
+							| anm-ease-out-quad
+						</button>
+					</li>
+					<li>
+						<button class="css-demo-button-cubic-bezier" type="button">
+							| anm-ease-in-out-quad
+						</button>
+					</li>
+					<li>
+						<button class="css-demo-button-cubic-bezier" type="button">
+							| anm-ease-in-cubic
+						</button>
+					</li>
+					<li>
+						<button class="css-demo-button-cubic-bezier" type="button">
+							| anm-ease-out-cubic
+						</button>
+					</li>
+					<li>
+						<button class="css-demo-button-cubic-bezier" type="button">
+							| anm-ease-in-out-cubic
+						</button>
+					</li>
+					<li>
+						<button class="css-demo-button-cubic-bezier" type="button">
+							| anm-ease-in-quart
+						</button>
+					</li>
+					<li>
+						<button class="css-demo-button-cubic-bezier" type="button">
+							| anm-ease-out-quart
+						</button>
+					</li>
+					<li>
+						<button class="css-demo-button-cubic-bezier" type="button">
+							| anm-ease-in-out-quart
+						</button>
+					</li>
+					<li>
+						<button class="css-demo-button-cubic-bezier" type="button">
+							| anm-ease-in-quint
+						</button>
+					</li>
+					<li>
+						<button class="css-demo-button-cubic-bezier" type="button">
+							| anm-ease-out-quint
+						</button>
+					</li>
+					<li>
+						<button class="css-demo-button-cubic-bezier" type="button">
+							| anm-ease-in-out-quint
+						</button>
+					</li>
+					<li>
+						<button class="css-demo-button-cubic-bezier" type="button">
+							| anm-ease-in-expo
+						</button>
+					</li>
+					<li>
+						<button class="css-demo-button-cubic-bezier" type="button">
+							| anm-ease-out-expo
+						</button>
+					</li>
+					<li>
+						<button class="css-demo-button-cubic-bezier" type="button">
+							| anm-ease-in-out-expo
+						</button>
+					</li>
+					<li>
+						<button class="css-demo-button-cubic-bezier" type="button">
+							| anm-ease-in-circ
+						</button>
+					</li>
+					<li>
+						<button class="css-demo-button-cubic-bezier" type="button">
+							| anm-ease-out-circ
+						</button>
+					</li>
+					<li>
+						<button class="css-demo-button-cubic-bezier" type="button">
+							| anm-ease-in-out-circ
+						</button>
+					</li>
+					<li>
+						<button class="css-demo-button-cubic-bezier" type="button">
+							| anm-ease-in-back
+						</button>
+					</li>
+					<li>
+						<button class="css-demo-button-cubic-bezier" type="button">
+							| anm-ease-out-back
+						</button>
+					</li>
+					<li>
+						<button class="css-demo-button-cubic-bezier" type="button">
+							| anm-ease-in-out-back
+						</button>
+					</li>
+				</ul>
+			</div>
+		</nav>
+		<div id="wrapper-inner">
+			<div id="cont-1">
+				<div>
+					<h1>Animotion.css</h1>
+					<p>A minimalistic CSS version to animate objects using transitions.</p>
+					<p class="download-text">Download the <a href="/library/animotion.css" download>Normal Version <i>(16.87kb)</i></a><br class="mobile-show"> or the <a href="/library/animotion.min.css" download>Minimal Version <i>(13.59kb)</i></a></p>
+				</div>
+			</div>
+			<div id="cont-2">
+				<div id="selected-animation">
+					anm-fadein-up
+				</div>
+				<section>
+					<div id="demo-cont">
+						<div id="example-div">
+							Lorem, ipsum dolor sit amet consectetur adipisicing elit.
+						</div>
+					</div>
+					<div id="css-desc">
+						<h2>CSS Code</h2>
+						<pre>
+							<code class="language-xml"><span>&lt;div class="<exampleClass>anm-fadein-up</exampleClass>"&gt;</span><span>&lt;/div&gt;</span></code>
+						</pre>
+					</div>
+				</section>
+			</div>
+		</div>
+	</div>
+	<style>
+		.hljs {
+			padding: 2rem 1rem;
+		}
+	</style>
+	<script>
+		document.querySelectorAll('.css-demo-button').forEach(btn => {
+			btn.addEventListener('click', (event) => {
+				const animationClass = btn.innerText.split('| ')[1];
+				currentAnimationClass = animationClass;
+				runDemo();
+			});
+		});
+
+		document.querySelectorAll('.css-demo-button-cubic-bezier').forEach(btn => {
+			btn.addEventListener('click', (event) => {
+				const timingFunction = btn.innerText.split('| ')[1];
+				currentTimingFunction = timingFunction;
+				runDemo();
+			});
+		});
+
+		document.querySelectorAll('.sidenav-toggle-accordian').forEach(btn => {
+			btn.addEventListener('click', (event) => {
+				document.querySelectorAll('.nav-section').forEach(el => {
+					if ((el !== btn.parentElement) && (el.classList.contains('active'))) {
+						el.classList.remove('active')
+					}
+				});
+				btn.parentElement.classList.toggle('active');
+			});
+		});
+
+		let currentAnimationClass = 'anm-fadein-up';
+		let currentTimingFunction = 'anm-ease';
+		let runDemoRunning = false;
+		const runDemo = () => {
+			if (runDemoRunning === false) {
+				runDemoRunning = true;
+				const exampleDiv = document.querySelector('#example-div');
+				exampleDiv.setAttribute('class', `${currentAnimationClass} ${currentTimingFunction}`);
+				setTimeout(() => {
+					exampleDiv.classList.add('anm-animate', 'anm-element');
+					document.querySelector('#selected-animation').innerText = `${currentAnimationClass} ${currentTimingFunction}`;
+					document.querySelector('exampleClass .hljs-string').innerText = `${currentAnimationClass} ${currentTimingFunction}`;
+					document.getElementById('cont-2').scrollIntoView();
+				}, 250);
+				setTimeout(() => {
+					exampleDiv.setAttribute('class', '');
+					runDemoRunning = false;
+				}, 900);
+			}
+		}
+
+		document.querySelector('#nav-switcher-toCSS').addEventListener('click', (e) => {
+			if (!document.querySelector('#nav-switcher-toCSS').classList.contains('active')) {
+				document.querySelector('#nav-switcher-toCSS').classList.add('active');
+				document.querySelector('#css-nav').classList.add('active');
+			}
+		});
+
+		document.addEventListener('DOMContentLoaded', (event) => {
+
+		});
+	</script>
+</body>
+
+</html>
