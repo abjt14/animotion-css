@@ -2,6 +2,10 @@
 
 Animotion.css is a minimalistic CSS version to animate objects using transitions.
 
+# Website
+
+https://abjt14.github.io/animotion-css/
+
 ## Usage
 
 ```html
