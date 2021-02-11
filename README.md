@@ -1,6 +1,6 @@
 # Animotion.css
 
-Animotion.css is a minimalistic CSS version to animate objects using transitions.
+Animotion.css is a minimalistic CSS library to animate objects using transitions.
 
 
 # Website
